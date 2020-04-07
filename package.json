@@ -1,0 +1,19 @@
+{
+  "name": "6th-tingting-node",
+  "version": "1.0.0",
+  "description": "tingting-admin-page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prography/6th-tingting-node.git"
+  },
+  "author": "tingting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prography/6th-tingting-node/issues"
+  },
+  "homepage": "https://github.com/prography/6th-tingting-node#readme"
+}
