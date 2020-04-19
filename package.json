@@ -2,8 +2,9 @@
   "name": "6th-tingting-node",
   "version": "1.0.0",
   "description": "tingting-admin-page",
-  "main": "index.js",
+  "main": "scr/app.js",
   "scripts": {
+    "start": "nodemon --exec babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,18 @@
   "bugs": {
     "url": "https://github.com/prography/6th-tingting-node/issues"
   },
-  "homepage": "https://github.com/prography/6th-tingting-node#readme"
+  "homepage": "https://github.com/prography/6th-tingting-node#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "nodemon": "^2.0.3"
+  }
 }
