@@ -1,8 +1,7 @@
 const express = require('express');
-const pictureRouter = require("./api/pictureRouter");
-
+const api = require('./v1/api/index');
 const router = express.Router();
 
-router.use("/picture", pictureRouter);
+router.use('/api', api);
 
 module.exports = router;
