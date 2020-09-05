@@ -1,5 +1,5 @@
 const express = require('express');
-const v1 = require('./v1/index');
+const v1 = require('./v1/admin');
 
 const router = express.Router();
 router.use('/v1', v1);

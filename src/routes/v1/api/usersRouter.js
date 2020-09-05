@@ -1,8 +1,8 @@
 const express = require('express');
-const pictureRouter = require("./api/pictureRouter");
-
 const router = express.Router();
 
-router.use("/picture", pictureRouter);
+router.get('/users', (req, res) => {
+    res.json('view users table')
+})
 
 module.exports = router;

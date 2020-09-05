@@ -1,8 +1,8 @@
 const express = require('express');
+const usersRouter = require("./api/usersRouter");
+
 const router = express.Router();
 
-router.get('', (req, res) => {
-    res.json('hi')
-})
+router.use("/admin", usersRouter);
 
 module.exports = router;
