@@ -1,8 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const verifyToken = require('../../../middlewares/auth')
+const { getUserList, getUserByIdName } = require('../../../controllers/userViewController')
 
-router.get('/users', (req, res) => {
-    res.json('view users table')
-})
+const router = express.Router()
+
+router.get('/users', verifyToken, getUserList)
+
+router.get('/users/:id', verifyToken, getUserByIdName)
 
 module.exports = router;
