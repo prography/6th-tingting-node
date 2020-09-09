@@ -10,9 +10,7 @@ const getUserList = async (req, res) => {
             "state" : 1,
             "message" : "성공",
             "data" : {
-                "users" : [
-                    viewUser
-                ]
+                "users" : viewUser
             }
         })
     }
