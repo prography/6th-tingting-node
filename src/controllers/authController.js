@@ -7,7 +7,8 @@ const loginByLocal = async (req, res) =>{
     }= req 
 
     //dotenv로 id 랑 password 변경 
-    if(id === tingadmin && password === "tingtong12"){
+    if(id == process.env.ADMIN_ID && password == process.env.ADMIN_PASSWD){
+        
         const data = {
             message: '성공',
             state: 1, 
