@@ -4,9 +4,7 @@ const { getUserList, getUserByIdName } = require('../../../controllers/userViewC
 
 const router = express.Router()
 
+// 모든 사용자 가져오기
 router.get('/', verifyToken, getUserList)
-
-
-router.get('/:userId', verifyToken, getUserByIdName)
 
 module.exports = router;
