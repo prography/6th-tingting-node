@@ -33,7 +33,29 @@ class UserViewService {
 
         try{
             const viewUser = await this.userViewModel.viewDetailUserById(data)
-            
+
+            return viewUser 
+        } catch(error){
+            console.log(error)
+            throw new Error(error)
+        }
+    }
+
+    async acceptUserProfileImage(data){
+        
+        try{
+            const viewUser = await this.userViewModel.agreeUserProfileImage(data)
+            return viewUser 
+        } catch(error){
+            console.log(error)
+            throw new Error(error)
+        }
+    }
+
+    async rejectUserProfileImage(data){
+        
+        try{
+            const viewUser = await this.userViewModel.rejectUserProfileImage(data)
             return viewUser 
         } catch(error){
             console.log(error)

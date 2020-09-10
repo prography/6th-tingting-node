@@ -70,7 +70,7 @@ const getUserByIdName = async (req, res) => {
 
         const message = "성공" 
         
-        if(viewUser.isDeleted== 1){
+        if(viewUser.isDeleted == 1){
              message = "성공, 삭제 된 유저입니다."
         }
 
@@ -93,11 +93,12 @@ const getUserByIdName = async (req, res) => {
         console.log(errorMessage)
         res.status(202).json({
             "state" : 0,
-            "message" : "실패",
+            "message" : errorMessage,
             "data" : {}
         })
     }
 }
+
 
 module.exports = {
     getUserList,
