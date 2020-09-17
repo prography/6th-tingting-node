@@ -17,6 +17,18 @@ class UserViewService {
         }
     }
 
+    // 검색한 사용자 가져오기
+    async getSearchedUserList (data) {
+        try{
+            const viewSearchedUser = await this.userViewModel.viewSearchedUser(data)
+            return viewSearchedUser
+        }
+        catch (error) {
+            console.log(error)
+            throw new Error(error)
+        }
+    }
+
     // 로컬 id 또는 이름으로 검색하여 가져오기
     async getUserByIdName (data) {
         try{

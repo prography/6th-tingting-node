@@ -5,15 +5,31 @@ const EmailService = require('../services/AvailableEmailService')
 const getUserList = async (req, res) => {
     const userViewService = new UserViewService()
     try{
-        const viewUser = await userViewService.getUserList()
-        // 성공시
-        res.status(200).json({
-            "state" : 1,
-            "message" : "성공",
-            "data" : {
-                "users" : viewUser
-            }
-        })
+        // 쿼리 스트링이 없을 경우 사용자 모두 조회
+        if(Object.keys(req.query).length === 0){
+            const viewUser = await userViewService.getUserList()
+            // 성공시
+            res.status(200).json({
+                "state" : 1,
+                "message" : "성공",
+                "data" : {
+                    "users" : viewUser
+                }
+            })
+        }
+        // 쿼리 스트링이 있을 경우 사용자 검색
+        else{
+            console.log(req.query.search, " 사용자 검색")
+            const viewUser = await userViewService.getSearchedUserList(req.query.search)
+            // 성공시
+            res.status(200).json({
+                "state" : 1,
+                "message" : "성공",
+                "data" : {
+                    "users" : viewUser
+                }
+            })
+        }
     }
     // 실패시
     catch (error) {
