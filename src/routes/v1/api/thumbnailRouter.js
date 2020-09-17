@@ -1,9 +1,11 @@
-//: [GET] /api/v1/admin/thumbnails와 관련된 router 
-const express = require('express');
-const router = express.Router();
+const express = require('express')
 
-router.get('', (req, res) => {
-    res.json('hi')
-})
+const {acceptUserThumbnail, rejectUserThumbnail} = require('../../../controllers/thumbNailController')
+
+const router = express.Router()
+
+router.get('/accept/:userId', acceptUserThumbnail )
+
+router.get('/reject/:userId', rejectUserThumbnail )
 
 module.exports = router;

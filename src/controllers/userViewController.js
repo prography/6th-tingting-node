@@ -3,7 +3,9 @@ const EmailService = require('../services/AvailableEmailService')
 
 // 모든 사용자 목록 조회
 const getUserList = async (req, res) => {
+
     const userViewService = new UserViewService()
+    
     try{
         // 쿼리 스트링이 없을 경우 사용자 모두 조회
         if(Object.keys(req.query).length === 0){
@@ -86,7 +88,7 @@ const getUserByIdName = async (req, res) => {
 
         const message = "성공" 
         
-        if(viewUser.isDeleted== 1){
+        if(viewUser.isDeleted == 1){
              message = "성공, 삭제 된 유저입니다."
         }
 
@@ -109,13 +111,52 @@ const getUserByIdName = async (req, res) => {
         console.log(errorMessage)
         res.status(202).json({
             "state" : 0,
-            "message" : "실패",
+            "message" : errorMessage,
             "data" : {}
         })
     }
+
+
 }
+
+    const deleteUser = async(req, res) =>{
+
+        const userViewService = new UserViewService()
+
+        try{
+            const id = req.params.userId
+            const user  = userViewService.userViewModel.deleteUser(id)
+            
+     
+            if(user){
+
+                res.status(200).json({
+                    "state":1, 
+                    "message" : "성공" ,
+                    "data": {} 
+                })
+        }else{
+
+             res.status(202).json({
+                "state":1, 
+                "message" : 실패 ,
+                "data": {} 
+            }) 
+        }
+    
+        }catch(error){
+            console.log(error.message)
+        }
+   
+   
+    }
+
+
+    
+
 
 module.exports = {
     getUserList,
-    getUserByIdName
+    getUserByIdName,
+    deleteUser
 }

@@ -82,6 +82,77 @@ class UserViewModel {
     })
     return row 
   }
+
+  async agreeUserProfileImage(data){
+    try{
+
+     await User.update({
+      is_thumbnailverified : 1
+      }, 
+        {
+           where:{
+           local_id : data
+        }
+      })
+
+      return true 
+
+    }catch(error){
+      return false 
+      console.log(error)
+    }
+    
+  }
+
+
+  async rejectUserProfileImage(data){
+
+    try{
+
+      await User.update({
+       is_thumbnailverified : 0
+       }, 
+         {
+            where:{
+            local_id : data
+         }
+       })
+ 
+       return true 
+ 
+     }catch(error){
+       return false 
+       console.log(error)
+     }
+
+    }
+
+
+    async deleteUser(data){
+
+      try{
+          console.log("errorHere2")
+        await User.update({
+          is_deleted : 1
+         }, 
+           {
+              where:{
+              local_id : data
+           }
+         })
+   
+         return true 
+   
+       }catch(error){
+         return false 
+         console.log(error)
+       }
+  
+      }
+
 }
+
+
+
 
 module.exports = UserViewModel

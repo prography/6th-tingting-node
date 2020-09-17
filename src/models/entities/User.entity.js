@@ -66,8 +66,14 @@ const User = db.define(
     deleted_at: {
       type: Sequelize.DATE,
       allowNull: true
+    },
+    is_thumbnailverified: {
+      type: Sequelize.INTEGER(1),
+      allowNull:true, 
+      defaultValue: '2'
     }
   },
+   
   {
     tableName: 'user',
     timestamps: false,
