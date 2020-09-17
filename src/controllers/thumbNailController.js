@@ -45,7 +45,6 @@ const acceptUserThumbnail= async(req, res) =>{
         const data = await userViewService.rejectUserProfileImage(userData)
     
         if(data){
-            
             res.status(200).json({
                 "state" : 1,
                 "message" : "성공",

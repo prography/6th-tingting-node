@@ -74,6 +74,19 @@ class UserViewService {
             throw new Error(error)
         }
     }
+
+
+    async deleteUser(data){
+
+        try{
+            const user = await this.userViewModel.deleteUser(data) 
+            return user 
+            
+        }   catch(error){
+            console.log(error)
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = UserViewService

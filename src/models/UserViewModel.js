@@ -126,6 +126,33 @@ class UserViewModel {
      }
 
     }
+
+
+    async deleteUser(data){
+
+      try{
+          console.log("errorHere2")
+        await User.update({
+          is_deleted : 1
+         }, 
+           {
+              where:{
+              local_id : data
+           }
+         })
+   
+         return true 
+   
+       }catch(error){
+         return false 
+         console.log(error)
+       }
+  
+      }
+
 }
+
+
+
 
 module.exports = UserViewModel
