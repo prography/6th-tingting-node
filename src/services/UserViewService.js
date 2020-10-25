@@ -53,6 +53,19 @@ class UserViewService {
         }
     }
 
+    
+    async getUserDetailByIdNumber(data){
+
+        try{
+            const viewUser = await this.userViewModel.viewDetailUserByIdNumber(data)
+
+            return viewUser 
+        } catch(error){
+            console.log(error)
+            throw new Error(error)
+        }
+    }
+
     async acceptUserProfileImage(data){
         
         try{
@@ -87,6 +100,21 @@ class UserViewService {
             throw new Error(error)
         }
     }
+
+    async isProfileReview(){
+
+        try
+        {
+            
+            const profileList = await this.userViewModel.profileReivewTarget()
+            return profileList
+
+        }catch(error){
+            console.log(error.message)
+            throw new Error(error)
+        }
+    }
+
 }
 
 module.exports = UserViewService

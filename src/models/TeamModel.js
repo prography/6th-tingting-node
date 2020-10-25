@@ -60,5 +60,52 @@ class TeamModel{
 
   }
 
+
+  async searchTeamById(data){
+
+    
+    const team = await Team.findAll({
+      attributes : [
+          'id',
+         'name',
+         'gender',
+         'max_member_number',
+         'created_at',
+         'updated_at',
+         'is_deleted'
+        ],
+        where:{
+          id : data
+        }
+     
+    })
+
+   // console.log(team)
+    return team
+  }
+
+  async deleteTeam(data){
+
+    try{
+
+      await Team.update({
+        is_deleted : 1
+       }, 
+         {
+            where:{
+            id : data
+         }
+       })
+ 
+       return true 
+ 
+     }catch(error){
+       return false 
+       console.log(error)
+     }
+
+    }
+
+
 }
 module.exports = TeamModel

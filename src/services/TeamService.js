@@ -1,4 +1,3 @@
-const Team = require("../models/entities/Team.entitiy")
 const TeamModel = require("../models/TeamModel")
 
 class TeamService{
@@ -31,6 +30,28 @@ class TeamService{
             return teamData
         }catch(error){
 
+            console.log(error.message)
+            throw new Error(error)
+        }
+    }
+    async searchTeamById(data){
+
+        try{
+            const teamData = await this.teamModel.searchTeamById(data)
+         //   console.log("teaData " + teamData)
+            return teamData 
+        }catch(error){
+            console.log(error.message)
+            throw new Error(error)
+        }
+    }
+
+    async deleteTeam(data){
+
+        try{
+            const teamData = await this.teamModel.deleteTeam(data)
+            return teamData 
+        }catch(error){
             console.log(error.message)
             throw new Error(error)
         }

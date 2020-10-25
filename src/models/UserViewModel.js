@@ -83,6 +83,30 @@ class UserViewModel {
     return row 
   }
 
+
+  async viewDetailUserByIdNumber(data){
+
+    const row = await User.findOne({
+      attributes:[
+        'id',
+        'name',
+        'local_id',
+        'height',
+        'created_at',
+        'updated_at',
+        'is_thumbnailverified',
+        'authenticated_address',
+        'birth',
+        'is_deleted',
+        'gender',
+    ],
+    where: {
+        id: data 
+    }
+    })
+    return row 
+  }
+
   async agreeUserProfileImage(data){
     try{
 
@@ -150,7 +174,27 @@ class UserViewModel {
   
       }
 
+
+ async profileReivewTarget(){
+
+    const teams = await User.findAll({
+
+      attributes : [
+          'gender',
+          'local_id',
+          'id',
+          'thumbnail'],
+
+          where :{
+            is_thumbnailverified : 2 
+          }
+  })
+   return teams
+  }
+
 }
+
+
 
 
 

@@ -63,12 +63,36 @@ const acceptUserThumbnail= async(req, res) =>{
             "message" : "실패",
             "data" : {}
         })
-    }
-
+    }    
 
  }
 
+ const profileReivewTarget = async(req, res) =>{
+
+    const userService = new UserViewService()
+
+    try{
+       const data =  await userService.isProfileReview()
+   
+       return  res.status(201).json({
+           "state" : 1,
+           "message" : "성공",
+           "data" : data
+       })
+   
+    }catch(error){
+        console.log(error.message)
+        res.status(202).json({
+           "state" : 0,
+           "message" : "실패",
+           "data" : {}
+        })
+    }
+   
+   }
+
  module.exports = {
     acceptUserThumbnail,
-    rejectUserThumbnail
+    rejectUserThumbnail,
+    profileReivewTarget
 }
