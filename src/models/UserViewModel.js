@@ -95,11 +95,7 @@ class UserViewModel {
       ],
 
         where :{
-<<<<<<< HEAD
           is_thumbnailverified : '2' 
-=======
-          is_thumbnailverified : 2 
->>>>>>> a5cdea87a4353f3e3195b361fb6559c7f8698337
         }
     })
     return users

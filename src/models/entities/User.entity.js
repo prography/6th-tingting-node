@@ -69,11 +69,7 @@ const User = db.define(
     },
     is_thumbnailverified: {
       type: Sequelize.INTEGER(1),
-<<<<<<< HEAD
       allowNull: false, 
-=======
-      allowNull:true, 
->>>>>>> a5cdea87a4353f3e3195b361fb6559c7f8698337
       defaultValue: '2'
     }
   },
