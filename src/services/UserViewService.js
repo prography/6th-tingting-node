@@ -52,6 +52,18 @@ class UserViewService {
             throw new Error(error)
         }
     }
+
+    // 프로필 심사 대상자 목록 가져오기
+    async getProfileSubject(){
+        try{
+            const users = await this.userViewModel.viewProfileSubject()
+            return users
+        }
+        catch(error){
+            console.log(error)
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = UserViewService
