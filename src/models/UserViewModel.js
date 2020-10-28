@@ -11,11 +11,11 @@ class UserViewModel {
         'authenticated_address',
         'birth',
         'height',
-        'is_thumbnailVerified',
+        'is_thumbnailverified',
         'gender',
         'created_at',
         'updated_at',
-        'is_Deleted'
+        'is_deleted'
       ]
     })
     return row
@@ -31,12 +31,12 @@ class UserViewModel {
         'authenticated_address',
         'birth',
         'height',
-        'is_thumbnailVerified',
+        //'is_thumbnailverified',
         'gender',
         'created_at',
         'updated_at',
-        'is_Deleted'
-    ],
+        'is_deleted'
+      ],
       // 쿼리 스트링 'search' 값에 따라 local_id 또는 name에서 해당 문자열을 포함하는 열 검색 
       where : {
         [Op.or] : {
@@ -75,12 +75,30 @@ class UserViewModel {
         'birth',
         'is_deleted',
         'gender',
-    ],
-    where: {
-        local_id: data 
-    }
+      ],
+      where: {
+          local_id: data 
+      }
     })
     return row 
+  }
+
+  // 프로필 심사 대상자 정보 목록 가져오기
+  async viewProfileSubject(){
+
+    const users = await User.findAll({
+      attributes : [
+        'gender',
+        'local_id',
+        'id',
+        'thumbnail'
+      ],
+
+        where :{
+          is_thumbnailverified : '2' 
+        }
+    })
+    return users
   }
 }
 
